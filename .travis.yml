@@ -8,7 +8,8 @@ services:
 
 before_install:
   - docker build -t faizanadil/docker -f Dockerfile.dev . 
-
+  
+ install: travis_wait 30 mvn install
 
 script:
   - docker run faizanadil/docker npm run test -- --coverage
